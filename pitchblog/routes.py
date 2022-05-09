@@ -9,25 +9,12 @@ from pitchblog.forms import RegistrationForm, LoginForm, UpdateAccountForm,PostF
 from pitchblog.models import User, Post
 from flask_login import login_user,logout_user, current_user, login_required
 
-posts = [
-    {
-        'author': 'Liz lizzy',
-        'title': ' Post 1',
-        'content': 'First post content',
-        'date_posted': 'May 20, 2022'
-    },
-    {
-        'author': 'Jane Doe',
-        'title': ' Post 2',
-        'content': 'Second post content',
-        'date_posted': 'May 21, 2022'
-    }
-]
 
 
 @app.route("/")
 @app.route("/home")
 def home():
+    posts=Post.query.all()
     return render_template('home.html', posts=posts)
 
 
@@ -108,6 +95,12 @@ def account():
 @app.route("/post/new", methods=['GET', 'POST'])
 @login_required
 def new_post():
-   
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(title=form.title.data, content=form.content.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash('Your post has been created!', 'success')
+        return redirect(url_for('home'))
     return render_template('create_post.html', title='New Post',
-                           )
+                           form=form, legend='New Post')
