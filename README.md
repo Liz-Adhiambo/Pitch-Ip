@@ -7,6 +7,13 @@ This is a web application that allows users to post one minute pitches.  The app
 ## Live preview
 
 You can view the site at: 
+
+
+## Design
+<img src="./pitchblog/static/images/shot1.png">
+<img src="./pitchblog/static/images/shot2.png">
+<img src="./pitchblog/static/images/shot3.png">
+
 ## Setup Instructions and Installation
 
 - Clone this repository to a location in your file system. `https://github.com/Liz2222/Pitch-Ip`
