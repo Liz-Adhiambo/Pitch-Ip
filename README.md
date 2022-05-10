@@ -9,7 +9,7 @@ This is a web application that allows users to post one minute pitches.  The app
 You can view the site at: 
 ## Setup Instructions and Installation
 
-- Clone this repository to a location in your file system. `https://github.com/sirgama/Minute-Pitch`
+- Clone this repository to a location in your file system. `https://github.com/Liz2222/Pitch-Ip`
 - Open terminal command line then navigate to the root folder of the application. `cd MinutePitcher
 - Run `./run.py`
 
